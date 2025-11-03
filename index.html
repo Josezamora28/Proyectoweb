@@ -1179,7 +1179,45 @@
                 grid-template-columns: 1fr;
             }
         }
-        
+        /* Botón WhatsApp flotante */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  background: #25d366;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 12px 22px;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+/* Botón mini de WhatsApp */
+.btn-whatsapp-mini {
+  display: inline-block;
+  background-color: #25d366;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp-mini i {
+  margin-right: 6px;
+}
+
+.btn-whatsapp-mini:hover {
+  background-color: #1ebc5b;
+  transform: scale(1.05);
+  color: #fff;
+}
     </style>
 </head>
 <body>
@@ -1204,6 +1242,11 @@
             </div>
         </div>
     </nav>
+        <!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/51912006996" class="btn-whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
