@@ -173,77 +173,77 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===== CLIENT DATA LOADING =====
-  // ===== CLIENT DATA LOADING =====
-const clients = [
-    {
-        name: "Restaurante Ruiz",
-        project: "Fabricación de Montaplato 4 pisos",
-        capacity: "Montaplato 150 kg",
-        location: "Iquitos",
-        image: "img/Brochure IMEC (1)_page7_image.png"
-    },
-    {
-        name: "Sunat",
-        project: "Vigas de izaje para Monta auto",
-        capacity: "Monta auto 3000 kg",
-        location: "Lima, distrito de Miraflores",
-        image: "img/Brochure IMEC (1)_page8_image.png"
-    },
-    {
-        name: "Clínica Xaron Renal",
-        project: "Estructura para Montacamilla",
-        capacity: "Monta camilla 1800 kg",
-        location: "Ica",
-        image: "img/Brochure IMEC (1)_page9_image.png"
-    },
-    {
-        name: "Ingeniería y Construcciones HMBA S.A.C",
-        project: "UNFV 2 Estructura para Ascensor",
-        capacity: "Ascensor 800 kg",
-        location: "Lima, Magdalena",
-        image: "img/Brochure IMEC (1)_page10_image.png"
-    },
-    {
-        name: "Citadela",
-        project: "Montaplato",
-        capacity: "Montaplato 150 kg",
-        location: "Lima, Lurín",
-        image: "img/Brochure IMEC (1)_page11_image.png"
-    },
-    {
-        name: "Gobierno Regional de Lima",
-        project: "Mantenimiento correctivo y preventivo",
-        capacity: "Ascensor 800 kg",
-        location: "Lima, Huacho",
-        image: "img/Brochure IMEC (1)_page12_image.png"
+    const clients = [
+        {
+            name: "Restaurante Ruiz",
+            project: "Fabricación de Montaplato 4 pisos",
+            capacity: "Montaplato 150 kg",
+            location: "Iquitos",
+            image: "img/Brochure IMEC (1)_page7_image.png"
+        },
+        {
+            name: "Sunat",
+            project: "Vigas de izaje para Monta auto",
+            capacity: "Monta auto 3000 kg",
+            location: "Lima, distrito de Miraflores",
+            image: "img/Brochure IMEC (1)_page8_image.png"
+        },
+        {
+            name: "Clínica Xaron Renal",
+            project: "Estructura para Montacamilla",
+            capacity: "Monta camilla 1800 kg",
+            location: "Ica",
+            image: "img/Brochure IMEC (1)_page9_image.png"
+        },
+        {
+            name: "Ingeniería y Construcciones HMBA S.A.C",
+            project: "UNFV 2 Estructura para Ascensor",
+            capacity: "Ascensor 800 kg",
+            location: "Lima, Magdalena",
+            image: "img/Brochure IMEC (1)_page10_image.png"
+        },
+        {
+            name: "Citadela",
+            project: "Montaplato",
+            capacity: "Montaplato 150 kg",
+            location: "Lima, Lurín",
+            image: "img/Brochure IMEC (1)_page11_image.png"
+        },
+        {
+            name: "Gobierno Regional de Lima",
+            project: "Mantenimiento correctivo y preventivo",
+            capacity: "Ascensor 800 kg",
+            location: "Lima, Huacho",
+            image: "img/Brochure IMEC (1)_page12_image.png"
+        }
+    ];
+
+    // Cargar clientes
+    const clientsGrid = document.querySelector('.clients-grid');
+
+    if (clientsGrid) {
+        clients.forEach(client => {
+            const clientCard = document.createElement('div');
+            clientCard.className = 'client-card animate-on-scroll';
+            clientCard.innerHTML = `
+                <div class="client-image-container">
+                    <img src="${client.image}" alt="${client.name}" class="client-image" loading="lazy">
+                    <div class="client-image-overlay"></div>
+                </div>
+                <div class="client-content">
+                    <h3>${client.name}</h3>
+                    <p><i class="fas fa-project-diagram client-icon"></i><strong>Proyecto:</strong> ${client.project}</p>
+                    <p><i class="fas fa-weight client-icon"></i><strong>Capacidad:</strong> ${client.capacity}</p>
+                    <p><i class="fas fa-map-marker-alt client-icon"></i><strong>Ubicación:</strong> ${client.location}</p>
+                </div>
+            `;
+            clientsGrid.appendChild(clientCard);
+            
+            // Observar la nueva tarjeta para animación
+            observer.observe(clientCard);
+        });
     }
-];
 
-// Cargar clientes
-const clientsGrid = document.querySelector('.clients-grid');
-
-if (clientsGrid) {
-    clients.forEach(client => {
-        const clientCard = document.createElement('div');
-        clientCard.className = 'client-card animate-on-scroll';
-        clientCard.innerHTML = `
-            <div class="client-image-container">
-                <img src="${client.image}" alt="${client.name}" class="client-image" loading="lazy">
-                <div class="client-image-overlay"></div>
-            </div>
-            <div class="client-content">
-                <h3>${client.name}</h3>
-                <p><i class="fas fa-project-diagram client-icon"></i><strong>Proyecto:</strong> ${client.project}</p>
-                <p><i class="fas fa-weight client-icon"></i><strong>Capacidad:</strong> ${client.capacity}</p>
-                <p><i class="fas fa-map-marker-alt client-icon"></i><strong>Ubicación:</strong> ${client.location}</p>
-            </div>
-        `;
-        clientsGrid.appendChild(clientCard);
-        
-        // Observar la nueva tarjeta para animación
-        observer.observe(clientCard);
-    });
-}
     // ===== IMAGE OPTIMIZATION =====
     function optimizeImages() {
         const images = document.querySelectorAll('.section-image, .service-image-container img');
