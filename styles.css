@@ -133,20 +133,21 @@ body {
     z-index: 1001;
 }
 
-/* Hero Section */
+/* Hero Section - CORREGIDO PARA BAJAR MÁS EL CONTENIDO */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 120px 25px 80px;
+    padding: 150px 25px 80px; /* AUMENTADO PADDING-TOP DE 120px A 150px */
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .hero-content {
     max-width: 650px;
     z-index: 2;
+    margin-top: 20px; /* AGREGADO MARGIN TOP ADICIONAL */
 }
 
 .hero-title {
@@ -215,7 +216,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Hero Visual with Animated Elevator */
+/* Hero Visual with Animated Elevator - COLOR PLOMO CORREGIDO */
 .hero-visual {
     position: absolute;
     right: 5%;
@@ -253,7 +254,7 @@ body {
     position: absolute;
     width: 280px;
     height: 480px;
-    background: linear-gradient(145deg, #2a3d5a, #1a2d4a);
+    background: linear-gradient(145deg, #676d75, #77808d); /* COLOR PLOMO */
     border-radius: 12px;
     box-shadow: 
         0 20px 40px rgba(0,0,0,0.3),
@@ -264,7 +265,7 @@ body {
     position: absolute;
     width: 200px;
     height: 400px;
-    background: linear-gradient(90deg, #1a2435, #0f1722);
+    background: linear-gradient(90deg, #9aa2af, #69717c); /* COLOR PLOMO MÁS CLARO */
     top: 40px;
     left: 40px;
     border-radius: 6px;
@@ -297,7 +298,7 @@ body {
     position: absolute;
     width: 180px;
     height: 260px;
-    background: linear-gradient(145deg, #254061, #1a3350);
+    background: linear-gradient(145deg, #707274, #707070); /* COLOR PLOMO PARA CABINA */
     bottom: 20px;
     left: 10px;
     border-radius: 4px;
@@ -312,7 +313,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #2a4875, #1e3a5f);
+    background: linear-gradient(135deg, #76787c, #777b80); /* INTERIOR PLOMO */
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -359,7 +360,7 @@ body {
 .door {
     width: 50%;
     height: 100%;
-    background: linear-gradient(145deg, #1a3350, #14243d);
+    background: linear-gradient(145deg, #7a7f85, #727375); /* PUERTAS PLOMO */
     transition: transform 1.5s ease-in-out;
     position: relative;
     box-shadow: 
@@ -382,7 +383,7 @@ body {
     top: 50%;
     width: 8px;
     height: 30px;
-    background: linear-gradient(90deg, #0070C0, #005a9e);
+    background: linear-gradient(90deg, #b4b5b6, #b3b6b9); /* MANIJA PLOMO */
     border-radius: 4px;
     transform: translateY(-50%);
     box-shadow: 0 0 5px rgba(0,112,192,0.5);
@@ -412,7 +413,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid rgba(0,112,192,0.3);
+    border: 2px solid rgba(154, 166, 175, 0.3); /* BORDE PLOMO */
     border-radius: inherit;
     box-shadow: inset 0 0 20px rgba(0,112,192,0.1);
 }
@@ -432,6 +433,7 @@ body {
     z-index: 4;
 }
 
+/* ELEMENTOS 3D ALREDEDOR DEL ASCENSOR - MEJORADOS */
 .floating-card {
     position: absolute;
     width: 80px;
@@ -444,6 +446,7 @@ body {
     box-shadow: var(--shadow-strong);
     z-index: 4;
     transition: all 0.5s ease;
+    animation: float 6s ease-in-out infinite;
 }
 
 .floating-card i {
@@ -452,21 +455,21 @@ body {
 }
 
 .card-1 {
-    top: 10%;
-    right: 10%;
-    animation: float 6s ease-in-out infinite;
+    top: 15%; /* AJUSTADA POSICIÓN */
+    right: 15%;
+    animation-delay: 0s;
 }
 
 .card-2 {
-    bottom: 20%;
-    right: 5%;
-    animation: float 7s ease-in-out infinite 1s;
+    bottom: 25%; /* AJUSTADA POSICIÓN */
+    right: 8%;
+    animation-delay: 2s;
 }
 
 .card-3 {
-    bottom: 10%;
-    right: 20%;
-    animation: float 5s ease-in-out infinite 0.5s;
+    bottom: 15%; /* AJUSTADA POSICIÓN */
+    right: 25%;
+    animation-delay: 4s;
 }
 
 .scroll-indicator {
@@ -493,8 +496,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    33% { 
+        transform: translateY(-15px) rotate(3deg); 
+    }
+    66% { 
+        transform: translateY(-8px) rotate(-3deg); 
+    }
 }
 
 @keyframes bounce {
@@ -505,7 +515,7 @@ body {
 
 /* Sections */
 .section {
-    padding: 110px 25px;
+    padding: 120px 25px; /* AUMENTADO PADDING-TOP */
     position: relative;
 }
 
@@ -1337,7 +1347,7 @@ body {
     font-size: 1rem;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* ===== RESPONSIVE DESIGN MEJORADO ===== */
 
 /* Tablets */
 @media (max-width: 1200px) {
@@ -1365,6 +1375,13 @@ body {
         width: 100%;
         height: 500px;
         margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .elevator-container {
+        transform: scale(0.9);
     }
     
     .products-grid {
@@ -1409,7 +1426,7 @@ body {
     }
 }
 
-/* Móviles */
+/* Móviles - CORREGIDO DEFINITIVAMENTE */
 @media (max-width: 768px) {
     .navbar-container {
         padding: 0 15px;
@@ -1444,14 +1461,18 @@ body {
     }
     
     .section {
-        padding: 80px 15px 40px;
+        padding: 120px 15px 40px; /* AUMENTADO PADDING-TOP */
     }
     
     .hero {
         flex-direction: column;
         text-align: center;
-        padding: 90px 15px 40px;
+        padding: 130px 15px 40px; /* AUMENTADO PADDING-TOP */
         min-height: auto;
+    }
+    
+    .hero-content {
+        margin-top: 30px; /* MÁS MARGIN TOP */
     }
     
     .hero-title {
@@ -1480,16 +1501,33 @@ body {
     }
     
     .hero-visual {
-        height: 350px;
-        margin-top: 30px;
+        height: 400px;
+        margin-top: 40px; /* MÁS MARGIN TOP */
+        position: relative;
     }
     
     .elevator-container {
-        transform: scale(0.7);
+        transform: scale(0.8);
     }
     
     .floating-card {
-        display: none;
+        display: block;
+        transform: scale(0.6); /* TAMAÑO REDUCIDO PARA MÓVIL */
+    }
+    
+    .card-1 {
+        top: 8%;
+        right: 8%;
+    }
+    
+    .card-2 {
+        bottom: 20%;
+        right: 5%;
+    }
+    
+    .card-3 {
+        bottom: 10%;
+        right: 18%;
     }
     
     .scroll-indicator {
@@ -1603,6 +1641,11 @@ body {
     
     .client-card {
         padding: 20px;
+        min-height: 450px;
+    }
+    
+    .client-image-container {
+        height: 220px;
     }
     
     .contact-container {
@@ -1668,10 +1711,12 @@ body {
     
     .text-side h3 {
         text-align: center;
+        font-size: 1.6rem;
     }
     
     .text-side p {
         text-align: center;
+        font-size: 1rem;
     }
     
     .services-grid-improved {
@@ -1701,6 +1746,14 @@ body {
 
 /* Móviles pequeños */
 @media (max-width: 480px) {
+    .hero {
+        padding: 100px 12px 30px; /* AÚN MÁS PADDING TOP */
+    }
+    
+    .hero-content {
+        margin-top: 40px;
+    }
+    
     .hero-title {
         font-size: 1.8rem;
     }
@@ -1713,8 +1766,17 @@ body {
         font-size: 1.6rem;
     }
     
+    .hero-visual {
+        height: 350px;
+        margin-top: 50px;
+    }
+    
     .elevator-container {
-        transform: scale(0.6);
+        transform: scale(0.7);
+    }
+    
+    .floating-card {
+        transform: scale(0.5);
     }
     
     .section-image {
@@ -1762,11 +1824,7 @@ body {
     }
     
     .section {
-        padding: 60px 12px 30px;
-    }
-    
-    .hero {
-        padding: 80px 12px 30px;
+        padding: 100px 12px 30px;
     }
     
     /* Responsive para contenido combinado en móviles pequeños */
@@ -1815,6 +1873,10 @@ body {
 
 /* Landscape en móviles */
 @media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 110px 15px 30px; /* MENOS PADDING EN LANDSCAPE */
+    }
+    
     .hero-visual {
         height: 250px;
     }
@@ -1826,6 +1888,10 @@ body {
     .section-image {
         max-width: 250px;
         max-height: 200px;
+    }
+    
+    .floating-card {
+        transform: scale(0.4);
     }
 }
 
@@ -1864,5 +1930,9 @@ body {
     .services-grid-improved {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
+    }
+    
+    .floating-card:hover {
+        transform: translateY(-10px) rotate(5deg);
     }
 }
